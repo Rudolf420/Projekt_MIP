@@ -5,7 +5,7 @@
 typedef struct node {
     char name[30];
     char surname[30];
-    char pohlavie[5];
+    char sex[5];
     char IN[11];
     int year;
     long long int I;
@@ -64,9 +64,9 @@ node* newNode(){
 			}
 			
 			if(new_node->IN[2] > '4')
-				strcpy(new_node->pohlavie, "zena");
+				strcpy(new_node->sex, "zena");
 			else
-				strcpy(new_node->pohlavie, "muz");
+				strcpy(new_node->sex, "muz");
 			
 			char tmp_IN[10];
 			new_node->I = atoll(new_node->IN);
@@ -78,17 +78,17 @@ node* newNode(){
 					tmp_IN[i] = new_node->IN[i+4];
 				}
 				
-				if(i == 3 && new_node->pohlavie[0] == 'z')
+				if(i == 3 && new_node->sex[0] == 'z')
 				{
 					tmp_IN[i] = new_node->IN[i-1] - 5;
 				}
 				
-				if(i == 4 && new_node->pohlavie[0] == 'z')
+				if(i == 4 && new_node->sex[0] == 'z')
 				{
 					tmp_IN[i] = new_node->IN[i-1];
 				}
 				
-				if(i < 5 && i > 2 && new_node->pohlavie[0] == 'm')
+				if(i < 5 && i > 2 && new_node->sex[0] == 'm')
 				{
 					tmp_IN[i] = new_node->IN[i-1];
 				}
@@ -125,7 +125,7 @@ node* newNode(){
 
 void printStatus(node* head) {
 	if(head == NULL)
-		printf("Nenacitano data\n");
+		printf("Nenacitane data\n");
 	else
 		printf("Nacitane data\n");
 }
@@ -190,9 +190,9 @@ node* createNode(int *size)
 				input[i] = '0';
 			}
 			if(temp->IN[2] > '4')
-				strcpy(temp->pohlavie, "zena");
+				strcpy(temp->sex, "zena");
 			else
-				strcpy(temp->pohlavie, "muz");
+				strcpy(temp->sex, "muz");
 			
 			char tmp_IN[10];
 			temp->I = atoll(temp->IN);
@@ -204,17 +204,17 @@ node* createNode(int *size)
 					tmp_IN[i] = temp->IN[i+4];
 				}
 				
-				if(i == 3 && temp->pohlavie[0] == 'z')
+				if(i == 3 && temp->sex[0] == 'z')
 				{
 					tmp_IN[i] = temp->IN[i-1] - 5;
 				}
 				
-				if(i == 4 && temp->pohlavie[0] == 'z')
+				if(i == 4 && temp->sex[0] == 'z')
 				{
 					tmp_IN[i] = temp->IN[i-1];
 				}
 				
-				if(i < 5 && i > 2 && temp->pohlavie[0] ==  'm')
+				if(i < 5 && i > 2 && temp->sex[0] ==  'm')
 				{
 					tmp_IN[i] = temp->IN[i-1];
 				}
@@ -275,7 +275,7 @@ void displayList(node *head)
 	
 	while(p != NULL)
 	{
-		printf("%d. %s %s %s %s %.2f\n",i ,p->name, p->surname, p->pohlavie, p->IN, p->revenue);
+		printf("%d. %s %s %s %s %.2f\n",i ,p->name, p->surname, p->sex, p->IN, p->revenue);
 		p = p->next;
 		i++;
 	}
