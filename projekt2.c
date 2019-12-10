@@ -123,6 +123,13 @@ node* newNode(){
 		return new_node;
 }
 
+void printStatus(node* head) {
+	if(head == NULL)
+		printf("Nenacitano data\n");
+	else
+		printf("Nacitane data\n");
+}
+
 node* createNode(int *size)
 {
 	FILE *f;
@@ -339,7 +346,7 @@ void aktualizuj(node* head){
 	int year = 2019;
 	int count = 0;
 	node* current;
-	int v;
+	float v;
 	float p;
 	scanf("%d %f",&v,&p);
 	
@@ -396,6 +403,7 @@ int main(){
 	char c[10];
 	
 	while(scanf("%s",c) > 0){
+		printStatus(HEAD);
 	
 	switch(c[0]) {
 		case 'n':
