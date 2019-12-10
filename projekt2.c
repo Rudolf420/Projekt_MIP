@@ -78,39 +78,39 @@ node* newNode(){
 					tmp_IN[i] = new_node->IN[i+4];
 				}
 				
-				if(i == 3 && new_node->sex[0] == 'z')
+				else if(i == 3 && new_node->sex[0] == 'z')
 				{
 					tmp_IN[i] = new_node->IN[i-1] - 5;
 				}
 				
-				if(i == 4 && new_node->sex[0] == 'z')
+				else if(i == 4 && new_node->sex[0] == 'z')
 				{
 					tmp_IN[i] = new_node->IN[i-1];
 				}
 				
-				if(i < 5 && i > 2 && new_node->sex[0] == 'm')
+				else if(i < 5 && i > 2 && new_node->sex[0] == 'm')
 				{
 					tmp_IN[i] = new_node->IN[i-1];
 				}
 				
-				if(i == 6)
+				else if(i == 6)
 					tmp_IN[i] = '1';
 				
-				if(i == 7)
+				else if(i == 7)
 				{
 					tmp_IN[i] = '9';
 				}
 				
-				if(i > 7 && i < 10)
+				else if(i > 7 && i < 10)
 				{
 					tmp_IN[i] = new_node->IN[i-8];
 					year[i-6] = new_node->IN[i-8];
 				}
 				
-				if(i == 2 || i == 5)
+				else if(i == 2 || i == 5)
 					tmp_IN[i] = '.';
 				
-				if(i == 9)
+				else if(i == 9)
 					tmp_IN[i+1] = '\0';
 			}
 		
