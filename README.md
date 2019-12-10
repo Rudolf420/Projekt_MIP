@@ -1,0 +1,1 @@
+Hello, My program is processing datas from external .txt file and consolidates it to .exe program. In .txt are datas about employees. My program can delete duplicates, add new employee and check if infos in their bios are correct.
