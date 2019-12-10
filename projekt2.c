@@ -281,7 +281,7 @@ void displayList(node *head)
 	}
 }
 
-void deduplikuj(node* head) 
+void deduplication(node* head) 
 { 
     node *ptr1, *ptr2, *tmp; 
     ptr1 = head; 
@@ -423,7 +423,7 @@ int main(){
 			break;
 		
 		case 'd':
-			deduplikuj(HEAD);
+			deduplication(HEAD);
 			break;
 		
 		case 'a':
