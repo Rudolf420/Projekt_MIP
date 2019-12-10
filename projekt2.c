@@ -339,7 +339,7 @@ void aktualizuj(node* head){
 	int year = 2019;
 	int count = 0;
 	node* current;
-	int v;
+	float v;
 	float p;
 	scanf("%d %f",&v,&p);
 	
