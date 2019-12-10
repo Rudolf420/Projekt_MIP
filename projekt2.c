@@ -34,26 +34,26 @@ node* newNode(){
 					i++;
 				}
 					
-				if(space == 0){
+				else if(space == 0){
 					new_node->name[j] = input[i];
 					new_node->name[j+1] = '\0';
 					j++;
 				}
 				
-				if(space == 1)
+				else if(space == 1)
 				{
 					new_node->surname[j] = input[i];
 					new_node->surname[j+1] = '\0';
 					j++;	
 				}
 				
-				if(space == 2)
+				else if(space == 2)
 				{
 					new_node->IN[j] = input[i];
 					j++;
 				}
 				
-				if(space == 3)
+				else if(space == 3)
 				{
 					tmp[j] = input[i];
 					if(i == strlen(input)-2)
