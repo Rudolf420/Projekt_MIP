@@ -14,11 +14,8 @@ typedef struct node {
 } node;
 
 node* newNode(){
-	int i = 0;
-	int j = 0;
-	int space = 0;		
-	char tmp[10];
-	char input[100];
+	int i = 0, j = 0, space = 0;		
+	char tmp[10], input[100];
 	char year[4] = {'1', '9'};
 	gets(input);
 	printf("%s",input);
@@ -136,7 +133,7 @@ node* createNode(int *size)
 	node *head = NULL;
 	node *temp = NULL;
 	node *p = NULL;
-	char input[100];
+	char input[1000];
 	f = fopen("zamestnanci.txt","r");
 	
 	if((*size) > 0)
@@ -341,11 +338,9 @@ void pridaj(node** head, int *size)
 }
 
 void aktualizuj(node* head){
-	int year = 2019;
-	int count = 0;
+	int year = 2019, count = 0;
 	node* current;
-	float v;
-	float p;
+	float v, p;
 	scanf("%d %f",&v,&p);
 	
 	for(current = head; current; current = current->next){
