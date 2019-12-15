@@ -133,7 +133,7 @@ node* createNode(int *size)
 	node *head = NULL;
 	node *temp = NULL;
 	node *p = NULL;
-	char input[100];
+	char input[1000];
 	f = fopen("zamestnanci.txt","r");
 	
 	if((*size) > 0)
@@ -340,12 +340,9 @@ void pridaj(node** head, int *size)
 void aktualizuj(node* head){
 	int year = 2019, count = 0;
 	node* current;
-<<<<<<< HEAD
+
 	float v, p;
-=======
-	float v;
-	float p;
->>>>>>> employeesInfo
+
 	scanf("%d %f",&v,&p);
 	
 	for(current = head; current; current = current->next){
