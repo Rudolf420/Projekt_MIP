@@ -343,7 +343,12 @@ void pridaj(node** head, int *size)
 void aktualizuj(node* head){
 	int year = 2019, count = 0;
 	node* current;
+<<<<<<< HEAD
 	float v, p;
+=======
+	float v;
+	float p;
+>>>>>>> employeesInfo
 	scanf("%d %f",&v,&p);
 	
 	for(current = head; current; current = current->next){
