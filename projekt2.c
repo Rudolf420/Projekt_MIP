@@ -5,7 +5,7 @@
 typedef struct node {
     char name[30];
     char surname[30];
-    char pohlavie[5];
+    char sex[5];
     char IN[11];
     int year;
     long long int I;
@@ -34,26 +34,26 @@ node* newNode(){
 					i++;
 				}
 					
-				if(space == 0){
+				else if(space == 0){
 					new_node->name[j] = input[i];
 					new_node->name[j+1] = '\0';
 					j++;
 				}
 				
-				if(space == 1)
+				else if(space == 1)
 				{
 					new_node->surname[j] = input[i];
 					new_node->surname[j+1] = '\0';
 					j++;	
 				}
 				
-				if(space == 2)
+				else if(space == 2)
 				{
 					new_node->IN[j] = input[i];
 					j++;
 				}
 				
-				if(space == 3)
+				else if(space == 3)
 				{
 					tmp[j] = input[i];
 					if(i == strlen(input)-2)
@@ -64,9 +64,9 @@ node* newNode(){
 			}
 			
 			if(new_node->IN[2] > '4')
-				strcpy(new_node->pohlavie, "zena");
+				strcpy(new_node->sex, "zena");
 			else
-				strcpy(new_node->pohlavie, "muz");
+				strcpy(new_node->sex, "muz");
 			
 			char tmp_IN[10];
 			new_node->I = atoll(new_node->IN);
@@ -78,39 +78,39 @@ node* newNode(){
 					tmp_IN[i] = new_node->IN[i+4];
 				}
 				
-				if(i == 3 && new_node->pohlavie[0] == 'z')
+				else if(i == 3 && new_node->sex[0] == 'z')
 				{
 					tmp_IN[i] = new_node->IN[i-1] - 5;
 				}
 				
-				if(i == 4 && new_node->pohlavie[0] == 'z')
+				else if(i == 4 && new_node->sex[0] == 'z')
 				{
 					tmp_IN[i] = new_node->IN[i-1];
 				}
 				
-				if(i < 5 && i > 2 && new_node->pohlavie[0] == 'm')
+				else if(i < 5 && i > 2 && new_node->sex[0] == 'm')
 				{
 					tmp_IN[i] = new_node->IN[i-1];
 				}
 				
-				if(i == 6)
+				else if(i == 6)
 					tmp_IN[i] = '1';
 				
-				if(i == 7)
+				else if(i == 7)
 				{
 					tmp_IN[i] = '9';
 				}
 				
-				if(i > 7 && i < 10)
+				else if(i > 7 && i < 10)
 				{
 					tmp_IN[i] = new_node->IN[i-8];
 					year[i-6] = new_node->IN[i-8];
 				}
 				
-				if(i == 2 || i == 5)
+				else if(i == 2 || i == 5)
 					tmp_IN[i] = '.';
 				
-				if(i == 9)
+				else if(i == 9)
 					tmp_IN[i+1] = '\0';
 			}
 		
@@ -121,6 +121,13 @@ node* newNode(){
 		new_node->next = NULL;
 		
 		return new_node;
+}
+
+void printStatus(node* head) {
+	if(head == NULL)
+		printf("Nenacitane data\n");
+	else
+		printf("Nacitane data\n");
 }
 
 node* createNode(int *size)
@@ -153,27 +160,27 @@ node* createNode(int *size)
 					i++;
 				}
 					
-				if(space == 0){
+				else if(space == 0){
 					temp->name[j] = input[i];
 					temp->name[j+1] = '\0';
 					j++;
 				}
 				
-				if(space == 1)
+				else if(space == 1)
 				{
 					temp->surname[j] = input[i];
 					temp->surname[j+1] = '\0';
 					j++;	
 				}
 				
-				if(space == 2)
+				else if(space == 2)
 				{
 					temp->IN[j] = input[i];
 					j++;
 					temp->IN[10] = '\0';
 				}
 				
-				if(space == 3)
+				else if(space == 3)
 				{
 					tmp[j] = input[i];
 					if(i == strlen(input)-2)
@@ -183,9 +190,9 @@ node* createNode(int *size)
 				input[i] = '0';
 			}
 			if(temp->IN[2] > '4')
-				strcpy(temp->pohlavie, "zena");
+				strcpy(temp->sex, "zena");
 			else
-				strcpy(temp->pohlavie, "muz");
+				strcpy(temp->sex, "muz");
 			
 			char tmp_IN[10];
 			temp->I = atoll(temp->IN);
@@ -197,17 +204,17 @@ node* createNode(int *size)
 					tmp_IN[i] = temp->IN[i+4];
 				}
 				
-				if(i == 3 && temp->pohlavie[0] == 'z')
+				if(i == 3 && temp->sex[0] == 'z')
 				{
 					tmp_IN[i] = temp->IN[i-1] - 5;
 				}
 				
-				if(i == 4 && temp->pohlavie[0] == 'z')
+				if(i == 4 && temp->sex[0] == 'z')
 				{
 					tmp_IN[i] = temp->IN[i-1];
 				}
 				
-				if(i < 5 && i > 2 && temp->pohlavie[0] ==  'm')
+				if(i < 5 && i > 2 && temp->sex[0] ==  'm')
 				{
 					tmp_IN[i] = temp->IN[i-1];
 				}
@@ -268,13 +275,13 @@ void displayList(node *head)
 	
 	while(p != NULL)
 	{
-		printf("%d. %s %s %s %s %.2f\n",i ,p->name, p->surname, p->pohlavie, p->IN, p->revenue);
+		printf("%d. %s %s %s %s %.2f\n",i ,p->name, p->surname, p->sex, p->IN, p->revenue);
 		p = p->next;
 		i++;
 	}
 }
 
-void deduplikuj(node* head) 
+void deduplication(node* head) 
 { 
     node *ptr1, *ptr2, *tmp; 
     ptr1 = head; 
@@ -396,6 +403,7 @@ int main(){
 	char c[10];
 	
 	while(scanf("%s",c) > 0){
+		printStatus(HEAD);
 	
 	switch(c[0]) {
 		case 'n':
@@ -415,7 +423,7 @@ int main(){
 			break;
 		
 		case 'd':
-			deduplikuj(HEAD);
+			deduplication(HEAD);
 			break;
 		
 		case 'a':
