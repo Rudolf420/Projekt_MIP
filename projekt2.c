@@ -14,11 +14,8 @@ typedef struct node {
 } node;
 
 node* newNode(){
-	int i = 0;
-	int j = 0;
-	int space = 0;		
-	char tmp[10];
-	char input[100];
+	int i = 0, j = 0, space = 0;		
+	char tmp[10], input[100];
 	char year[4] = {'1', '9'};
 	gets(input);
 	printf("%s",input);
