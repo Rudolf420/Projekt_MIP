@@ -144,9 +144,7 @@ node* createNode(int *size)
 	
 	while(fgets(input,100,f) != NULL)
 	{
-		int i = 0;
-		int j = 0;
-		int space = 0;
+		int i = 0, j = 0, space = 0;
 		char year[4] = {'1', '9'};
 		char tmp[10];
 		temp = (node*)malloc(sizeof(node));
